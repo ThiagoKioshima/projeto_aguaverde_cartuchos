@@ -7,11 +7,11 @@ from datetime import datetime
 # 1. CONEXÃO
 def conectar():
     return mysql.connector.connect(
-        host="localhost", user="root", password="Thi28du15*", database="gestao_avc"
+        host="localhost", user="root", password="*********", database="gestao_avc"
     )
 
 
-st.set_page_config(page_title="Gestão AVC Pro - RU 5411071", layout="wide")
+st.set_page_config(page_title="Gestão AVC Pro", layout="wide")
 
 # --- SISTEMA DE LOGIN ---
 if 'logado' not in st.session_state:

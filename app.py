@@ -1,3 +1,5 @@
+# para executar digite no terminal streamlit run app.py
+
 import streamlit as st
 import mysql.connector
 import pandas as pd

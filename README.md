@@ -1,20 +1,7 @@
-# Projeto Água Verde Cartuchos
-Projeto desenvolvido para empresa de venda de suprimentos de impressão<br>
-🖨️ Sistema ERP/PDV completo para gestão de suprimentos e serviços. 
+# 🖨️ AVC Gestão — Sistema de Gerenciamento
+## Água Verde Cartuchos — Desde 2012
 
-<br>
-
-## 🎯 Objetivos do Projeto
-
-*   **Infraestrutura e Persistência:** Implementar a arquitetura de armazenamento utilizando **SQL (MySQL)**, garantindo a integridade referencial e a persistência dos dados de vendas, estoque, fornecedores e usuários.
-*   **Interface e Experiência do Usuário (UX):** Desenvolver uma interface web com **Streamlit**, utilizando injeção de estilo via **Base64** e **CSS** para proporcionar uma navegação intuitiva no registro de vendas e na reposição de estoque.
-*   **Manipulação de Dados de Negócio:** Gerenciar e processar estruturas de dados complexas através da biblioteca **Pandas**, viabilizando a filtragem dinâmica de relatórios por múltiplos eixos, como período, cliente e vendedor.
-*   **Conectividade e Integração:** Estabelecer uma comunicação robusta entre a aplicação e o servidor de banco de dados utilizando o **MySQL Connector**, assegurando o fluxo correto de informações entre o front-end e o back-end.
-*   **Business Intelligence (BI) Interativo:** Construir dashboards dinâmicos utilizando **Plotly Express** e **Graph Objects** para visualização estatística de faturamento, análise de canais de venda e monitoramento de níveis críticos de inventário.
-*   **Auditoria e Precisão Temporal:** Processar e validar variáveis de tempo com a biblioteca **Datetime**, garantindo a exatidão em operações de auditoria, fechamentos de caixa e estornos de transações.
-*   **Gerenciamento de Recursos do Sistema:** Utilizar a biblioteca **OS** para a manipulação eficiente de arquivos locais e diretórios, garantindo a portabilidade e o carregamento correto de dependências visuais do sistema.
-
-<br>
+---
 
 ## 📋 Funcionalidades
 
@@ -119,19 +106,8 @@ fornecedores → produtos ──────────→ itens_venda ←─�
 
 ---
 
-## 🛠️ Tecnologias
-- **Linguagem:** `Python 3.9+`
+## 🎨 Tecnologias
 - **Frontend:** Streamlit + CSS customizado
 - **Banco de dados:** MySQL 8.0
 - **Gráficos:** Plotly Express (pizza, barras, linhas)
 - **Fontes:** Nunito + Outfit (Google Fonts)
-
-<br>
-
-### 📂 Documentação Complementar
-- [📄 Visualizar Apresentação das Interfaces (PDF)](Interface_tela_AVC.pdf)
-
-  
-
-
-

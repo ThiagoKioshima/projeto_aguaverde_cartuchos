@@ -111,3 +111,8 @@ fornecedores → produtos ──────────→ itens_venda ←─�
 - **Banco de dados:** MySQL 8.0
 - **Gráficos:** Plotly Express (pizza, barras, linhas)
 - **Fontes:** Nunito + Outfit (Google Fonts)
+
+---  
+
+### 📂 Documentação Complementar
+- [📄 Visualizar Apresentação das Interfaces (PDF)](Interface_tela_AVC.pdf)

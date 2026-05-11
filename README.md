@@ -1,16 +1,137 @@
-# projeto_aguaverde_cartuchos
-Projeto de BD MySQL e Python desenvolvido para empresa de venda de suprimentos de impressão
+# Projeto Água Verde Cartuchos
+Projeto desenvolvido para empresa de venda de suprimentos de impressão<br>
+🖨️ Sistema ERP/PDV completo para gestão de suprimentos e serviços. 
 
-# Objetivos
-- Implementar a infraestrutura de armazenamento utilizando a linguagem SQL (MySQL),
-garantindo a persistência e integridade dos dados de vendas, estoque e usuários.
-- Desenvolver a interface de usuário com a biblioteca Streamlit, focando na usabilidade para
-permitir o registro de vendas e a reposição de estoque de forma intuitiva.
-- Gerenciar e manipular as estruturas de dados do projeto através da biblioteca Pandas,
-permitindo a filtragem dinâmica de relatórios por período, cliente e vendedor.
-- Estabelecer a comunicação segura entre a aplicação e o servidor de banco de dados
-utilizando a biblioteca MySQL Connector.
-- Construir dashboards de Business Intelligence (BI) com a biblioteca Seaborn para
-visualização estatística de faturamento e níveis críticos de inventário.
-- Processar e validar variáveis temporais para operações de auditoria e estornos utilizando
-a biblioteca Datetime.
+<br>
+
+## 🎯 Objetivos do Projeto
+
+*   **Infraestrutura e Persistência:** Implementar a arquitetura de armazenamento utilizando **SQL (MySQL)**, garantindo a integridade referencial e a persistência dos dados de vendas, estoque, fornecedores e usuários.
+*   **Interface e Experiência do Usuário (UX):** Desenvolver uma interface web com **Streamlit**, utilizando injeção de estilo via **Base64** e **CSS** para proporcionar uma navegação intuitiva no registro de vendas e na reposição de estoque.
+*   **Manipulação de Dados de Negócio:** Gerenciar e processar estruturas de dados complexas através da biblioteca **Pandas**, viabilizando a filtragem dinâmica de relatórios por múltiplos eixos, como período, cliente e vendedor.
+*   **Conectividade e Integração:** Estabelecer uma comunicação robusta entre a aplicação e o servidor de banco de dados utilizando o **MySQL Connector**, assegurando o fluxo correto de informações entre o front-end e o back-end.
+*   **Business Intelligence (BI) Interativo:** Construir dashboards dinâmicos utilizando **Plotly Express** e **Graph Objects** para visualização estatística de faturamento, análise de canais de venda e monitoramento de níveis críticos de inventário.
+*   **Auditoria e Precisão Temporal:** Processar e validar variáveis de tempo com a biblioteca **Datetime**, garantindo a exatidão em operações de auditoria, fechamentos de caixa e estornos de transações.
+*   **Gerenciamento de Recursos do Sistema:** Utilizar a biblioteca **OS** para a manipulação eficiente de arquivos locais e diretórios, garantindo a portabilidade e o carregamento correto de dependências visuais do sistema.
+
+<br>
+
+## 📋 Funcionalidades
+
+| Módulo | Descrição |
+|---|---|
+| 🏠 Dashboard | KPIs, gráficos de vendas, alertas de estoque |
+| 🛒 Nova Venda | PDV com carrinho, produtos e serviços |
+| 📋 Vendas | Histórico com filtros e cancelamentos |
+| 👥 Clientes | Cadastro PF/PJ, busca rápida |
+| 📦 Produtos | Estoque com alertas de nível crítico |
+| 🔧 Serviços | Cadastro de serviços de recarga/manutenção |
+| 🚚 Fornecedores | Cadastro de fornecedores |
+| 📊 Relatórios | 7 relatórios dinâmicos com gráficos de pizza e barras |
+| 👷 Funcionários | Gestão de equipe (apenas Admin) |
+
+---
+
+## 🚀 Instalação e Configuração
+
+### 1. Pré-requisitos
+- Python 3.9+
+- MySQL 8.0+
+- pip
+
+### 2. Instalar dependências
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Criar o banco de dados MySQL
+```sql
+CREATE DATABASE gestao_avc CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+USE gestao_avc;
+```
+Depois importe os arquivos SQL fornecidos na ordem:
+```bash
+mysql -u root -p gestao_avc < gestao_avc_fornecedores.sql
+mysql -u root -p gestao_avc < gestao_avc_clientes.sql
+mysql -u root -p gestao_avc < gestao_avc_funcionarios.sql
+mysql -u root -p gestao_avc < gestao_avc_produtos.sql
+mysql -u root -p gestao_avc < gestao_avc_servicos.sql
+mysql -u root -p gestao_avc < gestao_avc_vendas.sql
+mysql -u root -p gestao_avc < gestao_avc_itens_venda.sql
+```
+
+### 4. Configurar credenciais
+Edite o arquivo `.streamlit/secrets.toml`:
+```toml
+db_host = "localhost"
+db_user = "root"
+db_password = "SUA_SENHA"
+db_name = "gestao_avc"
+```
+
+### 5. Copiar o logo
+Coloque o arquivo `logo_AVC.png` na mesma pasta que `app.py`.
+
+### 6. Executar
+```bash
+streamlit run app.py
+ou
+python -m streamlit run app.py
+```
+
+Acesse: **http://localhost:8501**
+
+---
+
+## 🔐 Logins
+
+| Funcionário | Senha | Nível |
+|---|---|---|
+| Juliano Moreira Paim | 123 | Admin |
+| Maria de Oliveira | 123 | Vendedor |
+| Leandro Miguel da Silva | 123 | Vendedor |
+| Thiago Kioshima | 0504 | Vendedor |
+
+---
+
+## 📊 Relatórios Disponíveis
+
+1. **Vendas por Período** — Diário, semanal ou mensal com barras + linha
+2. **Vendas por Canal** — Pizza + barras por canal (Balcão, Ads, WhatsApp...)
+3. **Vendas por Pagamento** — Pizza + barras por método (Pix, Dinheiro, Crédito...)
+4. **Ranking de Produtos** — Top itens mais vendidos por faturamento
+5. **Clientes Mais Ativos** — Ranking de clientes por gasto total
+6. **Margem de Lucro** — % e valor de lucro por produto
+7. **Entrega vs Balcão** — Comparativo de modalidades
+
+---
+
+## 🏗️ Estrutura do Banco
+
+```
+clientes ─────────────────────────────────┐
+funcionarios ──────────────────────────┐  │
+                                       ↓  ↓
+                                     vendas
+                                       ↓
+fornecedores → produtos ──────────→ itens_venda ←── servicos
+```
+
+---
+
+## 🛠️ Tecnologias
+- **Linguagem:** `Python 3.9+`
+- **Frontend:** Streamlit + CSS customizado
+- **Banco de dados:** MySQL 8.0
+- **Gráficos:** Plotly Express (pizza, barras, linhas)
+- **Fontes:** Nunito + Outfit (Google Fonts)
+
+<br>
+
+### 📂 Documentação Complementar
+- [📄 Visualizar Apresentação das Interfaces (PDF)](Interface_tela_AVC.pdf)
+
+  
+
+
+

@@ -1,5 +1,5 @@
 # 🖨️ AVC Gestão — Sistema de Gerenciamento
-## Água Verde Cartuchos — Desde 2012
+## Água Verde Cartuchos 
 
 ---
 
